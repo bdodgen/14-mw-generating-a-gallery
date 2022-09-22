@@ -2,7 +2,16 @@ const galleryDataArr = [["https://classes.codingbootcamp.cz/assets/classes/1428/
 
 // this looks at every sub-array in galleryDataArr, generates an HTML img tag, then concatenate the tag into the gallery in index.html
 
-galleryDataArr.forEach(element => {
-  let newImg = '<img src=' + element[0] + ' alt=' + element[1] + '>'
-  document.querySelector('.gallery').innerHTML += newImg
+let gallery = document.querySelector('.gallery')
+
+galleryDataArr.forEach(image => {
+  gallery.innerHTML += `
+  <div class="image">
+    <img src="${image[0]}" alt=${image[1]}>
+    <div class="image__description">${image[1]}</div>
+  </div>
+  `
 });
+
+
+
